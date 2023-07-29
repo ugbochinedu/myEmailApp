@@ -1,7 +1,6 @@
 package emailApp.models;
 
 import lombok.Data;
-
 import java.util.List;
 
 @Data

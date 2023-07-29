@@ -1,11 +1,14 @@
 package emailApp.services;
 
-import emailApp.dtos.LoginUserRequest;
-import emailApp.dtos.LoginUserResponse;
-import emailApp.dtos.RegisterUserRequest;
-import emailApp.dtos.RegisterUserResponse;
+import emailApp.dtos.*;
+import emailApp.models.User;
 
 public interface UserService {
     RegisterUserResponse registerUser(RegisterUserRequest registerUserRequest);
     LoginUserResponse login (LoginUserRequest loginUserRequest);
+    UpdateUserResponse updateUser(UpdateUserRequest updateUserRequest);
+    User findUserByEmailAddress(String email);
+    User findUserById(String Id);
+    void deleteUserById(String Id);
+    void deleteUser(User user);
 }
