@@ -8,6 +8,8 @@ import emailApp.repositories.CustomerRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 import java.util.Objects;
 
 @AllArgsConstructor
@@ -95,6 +97,7 @@ public class EmailAppCustomerService implements CustomerService {
         Message mappedMessage = AppUtil.messageMapper(sendMessageRequest);
         Customer customer = new Customer();
         customer.saveOutboxMessage(mappedMessage);
+        sendMessage(sendMessageRequest,mappedMessage);
 
         return sendMessageResponse();
     }
@@ -107,7 +110,13 @@ public class EmailAppCustomerService implements CustomerService {
     }
 
     @Override
-    public void sendMessage(SendMessageRequest sendMessageRequest) {
-
+    public void sendMessage(SendMessageRequest sendMessageRequest, Message mappedMessage) {
+        Customer foundCustomer = findCustomerByEmailAddress(sendMessageRequest.getRecipient());
+        foundCustomer.saveInboxMessage(mappedMessage);
     }
+
+//    @Override
+//    public List<Message> checkReceivedMessage() {
+//       return
+//    }
 }

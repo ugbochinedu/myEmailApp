@@ -35,4 +35,11 @@ public class Customer {
     public List<Message> getSavedOutboxMessage(){
         return outBoxMessages;
     }
+    public void saveInboxMessage(Message message){
+        receivedMessages.add(message);
+    }
+
+    public List<Message> getReceivedInboxMessage(){
+        return receivedMessages;
+    }
 }
