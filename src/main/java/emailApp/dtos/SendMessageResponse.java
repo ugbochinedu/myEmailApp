@@ -3,7 +3,6 @@ package emailApp.dtos;
 import lombok.Data;
 
 @Data
-public class RegisterUserResponse {
+public class SendMessageResponse {
     private String message;
-    private String emailAddress;
 }

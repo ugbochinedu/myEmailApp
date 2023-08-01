@@ -3,7 +3,7 @@ package emailApp.dtos;
 import lombok.Data;
 
 @Data
-public class LoginUserRequest {
+public class LoginCustomerRequest {
     private String email;
     private String password;
 }
